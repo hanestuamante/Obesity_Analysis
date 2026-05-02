@@ -1,3 +1,4 @@
+![Mô tả ảnh](https://raw.githubusercontent.com/hanestuamante/Obesity_Analysis/7fdf0f0beaa42dd7d169c69f135632cfc5d4b082/images/descripe.jpeg)
 # Obesity Analysis
 
 Professionalized R data science project for analyzing obesity status and building an ordinal logistic regression model.
