@@ -1,4 +1,4 @@
-# Obesity-Analysis
+# Obesity Analysis
 
 Professionalized R data science project for analyzing obesity status and building an ordinal logistic regression model.
 
