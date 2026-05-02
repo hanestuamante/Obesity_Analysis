@@ -1,0 +1,70 @@
+
+
+ ================================================================================ 
+ Ordinal Logistic Regression Summary 
+ ================================================================================ 
+Call:
+MASS::polr(formula = MODEL_FORMULA, data = train_data, Hess = TRUE)
+
+Coefficients:
+                                     Value Std. Error t value
+GenderMale                         0.01967    0.12674  0.1552
+Age                                0.12586    0.01635  7.6983
+family_history_with_overweightyes  2.52260    0.18426 13.6906
+FAVCyes                            1.11479    0.19364  5.7571
+FCVC                               0.52135    0.11899  4.3813
+NCP                               -0.06677    0.07507 -0.8894
+CAECSometimes                      3.20179    0.24377 13.1347
+CAECno                             2.77143    0.41308  6.7092
+SMOKEyes                          -0.33636    0.44923 -0.7487
+CH2O                               0.25631    0.10390  2.4670
+SCCyes                            -0.11362    0.30481 -0.3728
+FAF                               -0.33804    0.07290 -4.6370
+TUE                               -0.33445    0.09948 -3.3620
+CALCSometimes                     -0.09814    0.33296 -0.2948
+CALCno                            -0.44055    0.33791 -1.3037
+MTRANSOther                       -0.84981    0.40116 -2.1184
+MTRANSPublic_Transportation        0.89626    0.15487  5.7872
+
+Intercepts:
+                   Value   Std. Error t value
+Normal|Overweight   8.6965  0.7166    12.1361
+Overweight|Obesity 10.7913  0.7408    14.5664
+
+Residual Deviance: 2213.28 
+AIC: 2251.28 
+
+
+ ================================================================================ 
+ Confusion Matrix 
+ ================================================================================ 
+Confusion Matrix and Statistics
+
+            Reference
+Prediction   Normal Overweight Obesity
+  Normal        117         41      10
+  Overweight     34         34      25
+  Obesity        16         99     256
+
+Overall Statistics
+                                          
+               Accuracy : 0.644           
+                 95% CI : (0.6053, 0.6814)
+    No Information Rate : 0.4604          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.4248          
+                                          
+ Mcnemar's Test P-Value : 5.144e-10       
+
+Statistics by Class:
+
+                     Class: Normal Class: Overweight Class: Obesity
+Sensitivity                 0.7006            0.1954         0.8797
+Specificity                 0.8903            0.8712         0.6628
+Pos Pred Value              0.6964            0.3656         0.6900
+Neg Pred Value              0.8922            0.7403         0.8659
+Prevalence                  0.2642            0.2753         0.4604
+Detection Rate              0.1851            0.0538         0.4051
+Detection Prevalence        0.2658            0.1472         0.5870
+Balanced Accuracy           0.7955            0.5333         0.7712

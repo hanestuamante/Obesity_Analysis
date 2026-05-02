@@ -1,0 +1,206 @@
+
+
+ ================================================================================ 
+ Outlier Summary 
+ ================================================================================ 
+  variable outliers percent
+1      Age       77    3.65
+2     FCVC        0    0.00
+3      NCP      579   27.43
+4     CH2O        0    0.00
+5      FAF        0    0.00
+6      TUE        0    0.00
+7      BMI        0    0.00
+
+
+ ================================================================================ 
+ Continuous Variables by Obesity Status 
+ ================================================================================ 
+# A tibble: 3 x 50
+  NObeyesdad_group Age_min Age_q1 Age_median Age_mean Age_q3 Age_max Age_sd
+  <ord>              <dbl>  <dbl>      <dbl>    <dbl>  <dbl>   <dbl>  <dbl>
+1 Normal                14     18         20     20.5     22      35   3.18
+2 Overweight            16     20         23     23.3     25      35   4.66
+3 Obesity               15     22         23     24.1     26      35   3.69
+# i 42 more variables: FCVC_min <dbl>, FCVC_q1 <dbl>, FCVC_median <dbl>,
+#   FCVC_mean <dbl>, FCVC_q3 <dbl>, FCVC_max <dbl>, FCVC_sd <dbl>,
+#   NCP_min <dbl>, NCP_q1 <dbl>, NCP_median <dbl>, NCP_mean <dbl>,
+#   NCP_q3 <dbl>, NCP_max <dbl>, NCP_sd <dbl>, CH2O_min <dbl>, CH2O_q1 <dbl>,
+#   CH2O_median <dbl>, CH2O_mean <dbl>, CH2O_q3 <dbl>, CH2O_max <dbl>,
+#   CH2O_sd <dbl>, FAF_min <dbl>, FAF_q1 <dbl>, FAF_median <dbl>,
+#   FAF_mean <dbl>, FAF_q3 <dbl>, FAF_max <dbl>, FAF_sd <dbl>, ...
+
+
+ ================================================================================ 
+ Contingency Table: Gender 
+ ================================================================================ 
+        
+         Normal Overweight Obesity
+  Female    314        248     481
+  Male      245        332     491
+
+
+ ================================================================================ 
+ Contingency Table: family_history_with_overweight 
+ ================================================================================ 
+     
+      Normal Overweight Obesity
+  no     278         99       8
+  yes    281        481     964
+
+
+ ================================================================================ 
+ Contingency Table: FAVC 
+ ================================================================================ 
+     
+      Normal Overweight Obesity
+  no     130         96      19
+  yes    429        484     953
+
+
+ ================================================================================ 
+ Contingency Table: CAEC 
+ ================================================================================ 
+           
+            Normal Overweight Obesity
+  Often        241         38      16
+  Sometimes    305        506     954
+  no            13         36       2
+
+
+ ================================================================================ 
+ Contingency Table: SMOKE 
+ ================================================================================ 
+     
+      Normal Overweight Obesity
+  no     545        572     950
+  yes     14          8      22
+
+
+ ================================================================================ 
+ Contingency Table: SCC 
+ ================================================================================ 
+     
+      Normal Overweight Obesity
+  no     507        539     969
+  yes     52         41       3
+
+
+ ================================================================================ 
+ Contingency Table: CALC 
+ ================================================================================ 
+           
+            Normal Overweight Obesity
+  Often         20         35      16
+  Sometimes    315        367     719
+  no           224        178     237
+
+
+ ================================================================================ 
+ Contingency Table: MTRANS 
+ ================================================================================ 
+                       
+                        Normal Overweight Obesity
+  Automobile                91        160     206
+  Other                     48         19       7
+  Public_Transportation    420        401     759
+
+
+ ================================================================================ 
+ Shapiro-Wilk Test for BMI by Group 
+ ================================================================================ 
+data$NObeyesdad_group: Normal
+
+	Shapiro-Wilk normality test
+
+data:  dd[x, ]
+W = 0.91622, p-value < 2.2e-16
+
+------------------------------------------------------------ 
+data$NObeyesdad_group: Overweight
+
+	Shapiro-Wilk normality test
+
+data:  dd[x, ]
+W = 0.97185, p-value = 4.097e-09
+
+------------------------------------------------------------ 
+data$NObeyesdad_group: Obesity
+
+	Shapiro-Wilk normality test
+
+data:  dd[x, ]
+W = 0.95299, p-value < 2.2e-16
+
+
+
+ ================================================================================ 
+ Levene Test for Homogeneity of Variance 
+ ================================================================================ 
+Levene's Test for Homogeneity of Variance (center = median)
+        Df F value    Pr(>F)    
+group    2  321.26 < 2.2e-16 ***
+      2108                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+
+ ================================================================================ 
+ One-way ANOVA: BMI by Obesity Status 
+ ================================================================================ 
+                   Df Sum Sq Mean Sq F value Pr(>F)    
+NObeyesdad_group    2 110254   55127    4617 <2e-16 ***
+Residuals        2108  25169      12                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+
+ ================================================================================ 
+ Tukey HSD Post-hoc Test 
+ ================================================================================ 
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = BMI ~ NObeyesdad_group, data = data)
+
+$NObeyesdad_group
+                        diff       lwr       upr p adj
+Overweight-Normal   7.331956  6.851619  7.812293     0
+Obesity-Normal     17.189117 16.758935 17.619300     0
+Obesity-Overweight  9.857161  9.431952 10.282371     0
+
+
+
+ ================================================================================ 
+ Kruskal-Wallis Test 
+ ================================================================================ 
+
+	Kruskal-Wallis rank sum test
+
+data:  BMI by NObeyesdad_group
+Kruskal-Wallis chi-squared = 1819.9, df = 2, p-value < 2.2e-16
+
+
+
+ ================================================================================ 
+ Dunn Post-hoc Test 
+ ================================================================================ 
+  Kruskal-Wallis rank sum test
+
+data: x and group
+Kruskal-Wallis chi-squared = 1819.9243, df = 2, p-value = 0
+
+
+                           Comparison of x by group                            
+                                 (Bonferroni)                                  
+Col Mean-|
+Row Mean |     Normal    Obesity
+---------+----------------------
+ Obesity |  -41.56540
+         |    0.0000*
+         |
+Overweig |  -15.73294   24.27884
+         |    0.0000*    0.0000*
+
+alpha = 0.05
+Reject Ho if p <= alpha/2
